@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+    <PackageReference Include="Blazorise.Bootstrap" Version="1.1.5" />
+    <PackageReference Include="Blazorise.DataGrid" Version="1.1.5" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.5" />
+  </ItemGroup>
+
 </Project>

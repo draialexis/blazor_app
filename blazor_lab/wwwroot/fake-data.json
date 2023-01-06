@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "displayname": "Rodemco",
+    "name": "rodemco",
+    "stacksize": 22,
+    "maxdurability": 69,
+    "enchantcategories": [
+      "armor_chest",
+      "vanishable",
+      "weapon"
+    ],
+    "repairwith": [],
+    "createddate": "2016-03-23",
+    "updateddate": "2014-06-06"
+  },
+  {
+    "id": 2,
+    "displayname": "Candecor",
+    "name": "candecor",
+    "stacksize": 63,
+    "maxdurability": 109,
+    "enchantcategories": [
+      "digger"
+    ],
+    "repairwith": [
+      "oak_planks"
+    ],
+    "createddate": "2018-07-06",
+    "updateddate": null
+  },
+  {
+    "id": 3,
+    "displayname": "Cuizine",
+    "name": "cuizine",
+    "stacksize": 1,
+    "maxdurability": 23,
+    "enchantcategories": [
+      "weapon"
+    ],
+    "repairwith": [],
+    "createddate": "2020-01-13",
+    "updateddate": "2016-01-20"
+  },
+  {
+    "id": 4,
+    "displayname": "Bluplanet",
+    "name": "bluplanet",
+    "stacksize": 13,
+    "maxdurability": 95,
+    "enchantcategories": [],
+    "repairwith": [
+      "dark_oak_planks",
+      "warped_planks"
+    ],
+    "createddate": "2020-11-24",
+    "updateddate": null
+  },
+  {
+    "id": 5,
+    "displayname": "Neurocell",
+    "name": "neurocell",
+    "stacksize": 34,
+    "maxdurability": 35,
+    "enchantcategories": [
+      "armor_head",
+      "digger",
+      "breakable"
+    ],
+    "repairwith": [
+      "crimson_planks",
+      "oak_planks"
+    ],
+    "createddate": "2019-12-10",
+    "updateddate": "2017-05-09"
+  },
+  {
+    "id": 6,
+    "displayname": "Adornica",
+    "name": "adornica",
+    "stacksize": 7,
+    "maxdurability": 75,
+    "enchantcategories": [
+      "weapon"
+    ],
+    "repairwith": [
+      "oak_planks"
+    ],
+    "createddate": "2015-11-20",
+    "updateddate": "2022-01-16"
+  },
+  {
+    "id": 7,
+    "displayname": "Magnina",
+    "name": "magnina",
+    "stacksize": 63,
+    "maxdurability": 117,
+    "enchantcategories": [],
+    "repairwith": [],
+    "createddate": "2014-08-27",
+    "updateddate": null
+  },
+  {
+    "id": 8,
+    "displayname": "Entroflex",
+    "name": "entroflex",
+    "stacksize": 38,
+    "maxdurability": 50,
+    "enchantcategories": [
+      "armor",
+      "digger",
+      "armor_head"
+    ],
+    "repairwith": [
+      "crimson_planks",
+      "oak_planks"
+    ],
+    "createddate": "2021-11-20",
+    "updateddate": "2017-06-29"
+  },
+  {
+    "id": 9,
+    "displayname": "Comcur",
+    "name": "comcur",
+    "stacksize": 20,
+    "maxdurability": 13,
+    "enchantcategories": [],
+    "repairwith": [
+      "jungle_planks",
+      "birch_planks"
+    ],
+    "createddate": "2014-06-24",
+    "updateddate": null
+  },
+  {
+    "id": 10,
+    "displayname": "Quarx",
+    "name": "quarx",
+    "stacksize": 64,
+    "maxdurability": 79,
+    "enchantcategories": [],
+    "repairwith": [
+      "jungle_planks",
+      "spruce_planks"
+    ],
+    "createddate": "2019-07-03",
+    "updateddate": "2018-09-30"
+  },
+  {
+    "id": 11,
+    "displayname": "Parcoe",
+    "name": "parcoe",
+    "stacksize": 26,
+    "maxdurability": 97,
+    "enchantcategories": [
+      "breakable",
+      "armor"
+    ],
+    "repairwith": [
+      "crimson_planks"
+    ],
+    "createddate": "2018-03-25",
+    "updateddate": null
+  },
+  {
+    "id": 12,
+    "displayname": "Dogspa",
+    "name": "dogspa",
+    "stacksize": 45,
+    "maxdurability": 95,
+    "enchantcategories": [
+      "vanishable"
+    ],
+    "repairwith": [],
+    "createddate": "2014-07-03",
+    "updateddate": "2021-12-29"
+  },
+  {
+    "id": 13,
+    "displayname": "Buzzmaker",
+    "name": "buzzmaker",
+    "stacksize": 55,
+    "maxdurability": 85,
+    "enchantcategories": [],
+    "repairwith": [
+      "crimson_planks"
+    ],
+    "createddate": "2015-06-23",
+    "updateddate": null
+  },
+  {
+    "id": 14,
+    "displayname": "Realysis",
+    "name": "realysis",
+    "stacksize": 52,
+    "maxdurability": 72,
+    "enchantcategories": [
+      "weapon"
+    ],
+    "repairwith": [
+      "oak_planks"
+    ],
+    "createddate": "2019-12-26",
+    "updateddate": null
+  },
+  {
+    "id": 15,
+    "displayname": "Decratex",
+    "name": "decratex",
+    "stacksize": 15,
+    "maxdurability": 101,
+    "enchantcategories": [],
+    "repairwith": [],
+    "createddate": "2017-06-20",
+    "updateddate": "2016-09-04"
+  }
+]

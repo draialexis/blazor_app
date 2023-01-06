@@ -1,0 +1,41 @@
+﻿@page "/list"
+@using Models
+
+<h3>List</h3>
+
+@if (items != null)
+{
+    <!---->
+    <!---->
+    <!---->
+    <DataGrid TItem="Item"
+          Data="@items"
+          PageSize="10"
+          ReadData="@OnReadData"
+          TotalItems="@totalItems"
+          ShowPager
+          Responsive>
+
+        <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="#" />
+        <DataGridColumn TItem="Item" Field="@nameof(Item.DisplayName)" Caption="Displaye name" />
+        <DataGridColumn TItem="Item" Field="@nameof(Item.StackSize)" Caption="Stack size" />
+        <DataGridColumn TItem="Item" Field="@nameof(Item.MaxDurability)" Caption="Max durability" />
+        <DataGridColumn TItem="Item" Field="@nameof(Item.EnchantCategories)" Caption="Enchant categories">
+            <DisplayTemplate>
+                @(string.Join(", ", ((Item)context).EnchantCategories))
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn TItem="Item" Field="@nameof(Item.RepairWith)" Caption="Repair with">
+            <DisplayTemplate>
+                @(string.Join(", ", ((Item)context).RepairWith))
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn TItem="Item"
+                    Field="@nameof(Item.CreatedDate)"
+                    Caption="Created on"
+                    DisplayFormat="{0:d}"
+                    DisplayFormatProvider="@System.Globalization.CultureInfo.GetCultureInfo("fr-FR")" />
+
+    </DataGrid>
+}
+
