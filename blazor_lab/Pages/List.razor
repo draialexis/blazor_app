@@ -3,11 +3,14 @@
 
 <h3>List</h3>
 
+<div>
+    <NavLink class="btn btn-primary" href="add" Match="NavLinkMatch.All">
+        <i class="fa fa-plus"></i> Add
+    </NavLink>
+</div>
+
 @if (items != null)
 {
-    <!---->
-    <!---->
-    <!---->
     <DataGrid TItem="Item"
           Data="@items"
           PageSize="10"

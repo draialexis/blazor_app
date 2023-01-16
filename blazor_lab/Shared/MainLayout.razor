@@ -1,15 +1,20 @@
 ﻿@inherits LayoutComponentBase
 
+<PageTitle>blazor_lab_1</PageTitle>
 <header><h1>blabla topic stuff</h1></header>
 
-<div class="sidebar">
-    <NavMenu/>
-</div>
+<div class="page">
 
-<div class="container">
-    <main role="main" class="pb-3">
-        @Body
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
     </main>
+
 </div>
 
 <footer>blabla trademark stuff</footer>

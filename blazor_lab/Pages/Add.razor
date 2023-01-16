@@ -1,0 +1,75 @@
+﻿@page "/add"
+
+
+<h3>Add</h3>
+
+<EditForm Model="@itemModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label for="display-name">
+            Display name:
+            <InputText id="display-name" @bind-Value="itemModel.DisplayName" />
+        </label>
+    </p>
+    <p>
+        <label for="name">
+            Name:
+            <InputText id="name" @bind-Value="itemModel.Name" />
+        </label>
+    </p>
+    <p>
+        <label for="stack-size">
+            Stack size:
+            <InputNumber id="stack-size" @bind-Value="itemModel.StackSize" />
+        </label>
+    </p>
+    <p>
+        <label for="max-durability">
+            Max durability:
+            <InputNumber id="max-durability" @bind-Value="itemModel.MaxDurability" />
+        </label>
+    </p>
+    <p>
+        Enchant categories:
+        <div>
+            @foreach (var item in enchantCategories)
+            {
+                <label>
+                    <input type="checkbox"
+                       @onchange="@(e => OnEnchantCategoriesChange(item, e.Value))" />
+                    @item
+                </label>
+            }
+        </div>
+    </p>
+    <p>
+        Repair with:
+        <div>
+            @foreach (var item in repairWith)
+            {
+                <label>
+                    <input type="checkbox" 
+                        @onchange="@(e => OnRepairWithChange(item, e.Value))" 
+                        />
+                        @item
+                </label>
+            }
+        </div>
+    </p>
+    <p>
+        <label>
+            Item image:
+            <InputFile OnChange="@LoadImage" accept=".png" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Accept Condition:
+            <InputCheckbox @bind-Value="itemModel.AcceptCondition" />
+        </label>
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>
