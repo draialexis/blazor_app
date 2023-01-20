@@ -12,7 +12,7 @@ namespace blazor_lab.Models
 
         [Required]
         [StringLength(50, ErrorMessage = "50ch max")]
-        [RegularExpression(@"^[a-z''-'\s]{1, 50}$", ErrorMessage = "lowercase only")]
+        [RegularExpression(@"^[a-z''-'\s]{1,50}$", ErrorMessage = "lowercase only")]
         public string Name { get; set; }
 
         [Required]

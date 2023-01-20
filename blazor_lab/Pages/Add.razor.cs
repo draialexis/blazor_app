@@ -14,6 +14,9 @@ namespace blazor_lab.Pages
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         /// <summary>
         /// The default enchant categories.
         /// </summary>
@@ -72,6 +75,8 @@ namespace blazor_lab.Pages
 
             // Save the data
             await LocalStorageService.SetItemAsync("data", currentData);
+
+            NavigationManager.NavigateTo("list");
         }
         private async Task LoadImage(InputFileChangeEventArgs e)
         {
