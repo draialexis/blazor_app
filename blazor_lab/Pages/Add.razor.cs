@@ -1,5 +1,5 @@
 ﻿using blazor_lab.Models;
-using Blazored.LocalStorage;
+using blazor_lab.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -9,13 +9,10 @@ namespace blazor_lab.Pages
     {
 
         [Inject]
-        public ILocalStorageService LocalStorageService { get; set; }
+        public IDataService DataService { get; set; }
 
         [Inject]
-        public IWebHostEnvironment WebHostEnvironment { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        public NavigationManager NavigationManager { get; set; }    
 
         /// <summary>
         /// The default enchant categories.
@@ -39,43 +36,7 @@ namespace blazor_lab.Pages
 
         private async void HandleValidSubmit()
         {
-            // Get the current data
-            var currentData = await LocalStorageService.GetItemAsync<List<Item>>("data");
-
-            // Simulate the Id
-            itemModel.Id = currentData.Max(item => item.Id) + 1;
-
-            // Add the item to the current data
-            currentData.Add(new Item
-            {
-                Id = itemModel.Id,
-                DisplayName = itemModel.DisplayName,
-                Name = itemModel.Name,
-                RepairWith = itemModel.RepairWith,
-                EnchantCategories = itemModel.EnchantCategories,
-                MaxDurability = itemModel.MaxDurability,
-                StackSize = itemModel.StackSize,
-                CreatedDate = DateTime.Now
-            });
-
-            // Save the image
-            var imagePathInfo = new DirectoryInfo($"{WebHostEnvironment.WebRootPath}/images");
-
-            // Check if the folder "images" exist
-            if (!imagePathInfo.Exists)
-            {
-                imagePathInfo.Create();
-            }
-
-            // Determine the image name
-            var fileName = new FileInfo($"{imagePathInfo}/{itemModel.Name}.png");
-
-            // Write the file content
-            await File.WriteAllBytesAsync(fileName.FullName, itemModel.ImageContent);
-
-            // Save the data
-            await LocalStorageService.SetItemAsync("data", currentData);
-
+            await DataService.Add(itemModel);
             NavigationManager.NavigateTo("list");
         }
         private async Task LoadImage(InputFileChangeEventArgs e)
