@@ -20,6 +20,9 @@ namespace blazor_lab.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Inject]
+        public IWebHostEnvironment WebHostEnvironment { get; set; } 
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             // Do not treat this action if is not the first render

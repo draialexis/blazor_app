@@ -20,6 +20,18 @@
           Responsive>
 
         <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="#" />
+        <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="Image">
+            <DisplayTemplate>
+                @if (File.Exists($"{WebHostEnvironment.WebRootPath}/images/{context.Name}.png"))
+                {
+                    <img src="images/@(context.Name).png" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="max-width: 150px" />
+                }
+                else
+                {
+                    <img src="images/default.png" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="max-width: 150px" />
+                }
+            </DisplayTemplate>
+        </DataGridColumn>
         <DataGridColumn TItem="Item" Field="@nameof(Item.DisplayName)" Caption="Displayed name" />
         <DataGridColumn TItem="Item" Field="@nameof(Item.StackSize)" Caption="Stack size" />
         <DataGridColumn TItem="Item" Field="@nameof(Item.MaxDurability)" Caption="Max durability" />
