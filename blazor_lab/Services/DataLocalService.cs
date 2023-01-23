@@ -74,6 +74,23 @@ namespace blazor_lab.Services
             return (await _localStorageService.GetItemAsync<Item[]>("data")).Length;
         }
 
+        public async Task Delete(int id)
+        {
+            var currentData = await _localStorageService.GetItemAsync<List<Item>>("data");
+            var item = currentData.FirstOrDefault(w => w.Id == id);
+            currentData.Remove(item);
+
+            var imagePathInfo = new DirectoryInfo($"{_webHostEnvironment.WebRootPath}/images");
+            var fileInfo = new FileInfo($"{imagePathInfo}/{item.Name}.png");
+
+            if(fileInfo.Exists)
+            {
+                File.Delete(fileInfo.FullName);
+            }
+
+            await _localStorageService.SetItemAsync("data", currentData);
+        }
+
         public async Task<Item> GetById(int id)
         {
             var item = (await _localStorageService.GetItemAsync<List<Item>>("data")).FirstOrDefault(w => w.Id == id);
