@@ -50,7 +50,13 @@
                     Caption="Created on"
                     DisplayFormat="{0:d}"
                     DisplayFormatProvider="@System.Globalization.CultureInfo.GetCultureInfo("fr-FR")" />
-
+        <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="Action">
+            <DisplayTemplate>
+                <a href="edit/@(context.Id)" class="btn btn-primary">
+                    <i class="fa fa-edit" /> Editer
+                </a>
+            </DisplayTemplate>
+        </DataGridColumn>
     </DataGrid>
 }
 
