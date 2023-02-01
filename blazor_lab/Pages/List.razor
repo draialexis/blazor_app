@@ -55,6 +55,9 @@
                 <a href="edit/@(context.Id)" class="btn btn-primary">
                     <i class="fa fa-edit" /> Editer
                 </a>
+                <button type="button" class="btn btn-primary" @onclick="() => OnDeleteAsync(context.Id)">
+                    <i class="fa fa-trash"></i> Supprimer
+                </button>
             </DisplayTemplate>
         </DataGridColumn>
     </DataGrid>

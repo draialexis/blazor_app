@@ -1,0 +1,36 @@
+TP2
+	1
+		A
+Le problème reader/writer est différent.
+Dans notre cas, on veut que des clients et des patissiers accèdent à une ressource partagée ; l'une en "lecture", l'autre en "écriture"
+Mais on veut aussi empêcher un client de prendre une patisserie s'il n'yen a aucune de prete, par exemple. 
+Ca ressemble beaucoup plus à un problème producer/consumer.
+
+		B
+La boutique peut jouer le role de moniteur, comme elle gère les inputs outputs et connait le stock
+Elle définit un buffer de taille n, puis
+put() {
+	if(getstock() == n) {
+		notFull.await(); // ne pas ajouter si plein
+	}
+	/*
+	do the putting ...
+	*/
+	// stock++ if necessary
+	notEmpty.signal(); // annoncer que non vide
+}
+Symmétriquement, 
+get() {
+	if(getstock() == 0) {
+		notEmpty.await(); // ne pas prendre si vide
+	}
+	/*
+	do the getting ...
+	*/
+	// stock-- if necessary
+	notFull.signal(); // annoncer que non plein
+}
+
+Avec un arrayList, on pourra / devra implémenter un buffer circulaire, càd tracer la tete et la queue en indexes variables qu'on incrémente, modulo, tout le bazar
+
+Depuis le main, on start() les Customers et PastryChefs qui héritent de Runnable
