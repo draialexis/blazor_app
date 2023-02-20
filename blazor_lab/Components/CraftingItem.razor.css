@@ -1,0 +1,6 @@
+﻿.item {
+    width: 64px;
+    height: 64px;
+    border: 1px solid;
+    overflow: hidden;
+}

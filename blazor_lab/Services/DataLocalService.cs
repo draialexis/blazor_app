@@ -1,8 +1,8 @@
-﻿using blazor_lab.Factories;
+﻿using blazor_lab.Components;
+using blazor_lab.Factories;
 using blazor_lab.Models;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Hosting;
 
 namespace blazor_lab.Services
 {
@@ -83,7 +83,7 @@ namespace blazor_lab.Services
             var imagePathInfo = new DirectoryInfo($"{_webHostEnvironment.WebRootPath}/images");
             var fileInfo = new FileInfo($"{imagePathInfo}/{item.Name}.png");
 
-            if(fileInfo.Exists)
+            if (fileInfo.Exists)
             {
                 File.Delete(fileInfo.FullName);
             }
@@ -101,6 +101,25 @@ namespace blazor_lab.Services
             }
 
             return item;
+        }
+
+        public Task<List<CraftingRecipe>> GetRecipes()
+        {
+            var items = new List<CraftingRecipe>
+            {
+                new CraftingRecipe
+                {
+                    Give = new Item { DisplayName = "Diamond", Name = "diamond" },
+                    Have = new List<List<string>>
+                    {
+                        new List<string> { "dirt", "dirt", "dirt" },
+                        new List<string> { "dirt", null, "dirt" },
+                        new List<string> { "dirt", "dirt", "dirt" }
+                    }
+                }
+            };
+
+            return Task.FromResult(items);
         }
 
         public async Task<List<Item>> List(int currentPage, int pageSize)
@@ -138,7 +157,7 @@ namespace blazor_lab.Services
 
             ItemFactory.Update(item, model);
 
-            await _localStorageService.SetItemAsync("data", currentData);  
+            await _localStorageService.SetItemAsync("data", currentData);
         }
     }
 }

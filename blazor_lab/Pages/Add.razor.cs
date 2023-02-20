@@ -12,7 +12,7 @@ namespace blazor_lab.Pages
         public IDataService DataService { get; set; }
 
         [Inject]
-        public NavigationManager NavigationManager { get; set; }    
+        public NavigationManager NavigationManager { get; set; }
 
         /// <summary>
         /// The default enchant categories.

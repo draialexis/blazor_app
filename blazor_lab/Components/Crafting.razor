@@ -1,0 +1,50 @@
+﻿<CascadingValue Value="@this">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+
+                <div>Available items:</div>
+                <div>
+                    <div class="css-grid">
+
+                        @foreach (var item in Items)
+                        {
+                            <CraftingItem Item="item" NoDrop="true" />
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-6">
+                <div>Recipe</div>
+
+                <div>
+
+                    <div class="css-recipe">
+                        <CraftingItem Index="0" />
+                        <CraftingItem Index="1" />
+                        <CraftingItem Index="2" />
+                        <CraftingItem Index="3" />
+                        <CraftingItem Index="4" />
+                        <CraftingItem Index="5" />
+                        <CraftingItem Index="6" />
+                        <CraftingItem Index="7" />
+                        <CraftingItem Index="8" />
+                    </div>
+                </div>
+
+                <div>Result</div>
+                <div>
+                    <CraftingItem Item="RecipeResult" />
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div>Actions</div>
+                <div class="actions" id="actions">
+                </div>
+            </div>
+        </div>
+    </div>
+</CascadingValue>

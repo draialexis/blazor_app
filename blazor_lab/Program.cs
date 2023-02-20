@@ -1,20 +1,18 @@
-using blazor_lab.Data;
+using blazor_lab.Services;
+using Blazored.LocalStorage;
+using Blazored.Modal;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
-using Blazored.LocalStorage;
-using blazor_lab.Services;
-using Blazored.Modal;
 using Microsoft.AspNetCore.Localization;
-using System.Globalization;
 using Microsoft.Extensions.Options;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddHttpClient();
 

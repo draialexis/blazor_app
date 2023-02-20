@@ -1,7 +1,7 @@
 ﻿using blazor_lab.Models;
 using blazor_lab.Services;
-using Blazored.Modal.Services;
 using Blazored.Modal;
+using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace blazor_lab.Modals

@@ -5,6 +5,7 @@ using Blazored.Modal;
 using Blazored.Modal.Services;
 using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 
 namespace blazor_lab.Pages
 {
@@ -13,6 +14,9 @@ namespace blazor_lab.Pages
         private List<Item> items;
 
         private int totalItems;
+
+        [Inject]
+        public IStringLocalizer<List> Localizer { get; set; }
 
         [Inject]
         public IDataService DataService { get; set; }
