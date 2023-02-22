@@ -117,8 +117,12 @@ namespace blazor_lab.Services
         public async Task Update(int id, ItemModel model)
         {
             var currentData = await _localStorageService.GetItemAsync<List<Item>>("data");
-            var item = await GetById(id);
-            
+            var item = currentData.FirstOrDefault(w => w.Id == id);
+            if (item == null)
+            {
+                throw new Exception($"Unable to found the item with ID: {id}");
+            }
+
 
             ItemFactory.Update(item, model);
 

@@ -43,6 +43,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = new List<CultureInfo> { new CultureInfo("en-US"), new CultureInfo("fr-FR") };
 });
 
+builder.Services.AddScoped<IDataService, DataApiService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
