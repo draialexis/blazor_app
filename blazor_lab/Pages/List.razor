@@ -22,9 +22,9 @@
         <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="#" />
         <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" Caption="Image">
             <DisplayTemplate>
-                @if (File.Exists($"{WebHostEnvironment.WebRootPath}/images/{context.Name}.png"))
+                @if (!string.IsNullOrWhiteSpace(context.ImageBase64))
                 {
-                    <img src="images/@(context.Name).png" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="max-width: 150px" />
+                    <img src="data:image/png;base64, @(context.ImageBase64)" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="min-width: 50px; max-width: 150px" />
                 }
                 else
                 {

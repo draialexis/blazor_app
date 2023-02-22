@@ -32,5 +32,6 @@ namespace blazor_lab.Models
 
         [Required(ErrorMessage = "img mandatory")]
         public byte[] ImageContent { get; set; }
+        public string ImageBase64 { get; set; }
     }
 }

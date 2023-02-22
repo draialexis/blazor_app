@@ -43,16 +43,7 @@ namespace blazor_lab.Pages
         {
             var item = await DataService.GetById(Id);
 
-            byte[] fileContent;
-
-            if (File.Exists($"{WebHostEnvironment.WebRootPath}/images/{itemModel.Name}.png"))
-            {
-                fileContent = await File.ReadAllBytesAsync($"{WebHostEnvironment.WebRootPath}/images/{item.Name}.png");
-            }
-            else
-            {
-                fileContent = await File.ReadAllBytesAsync($"{WebHostEnvironment.WebRootPath}/images/default.png");
-            }
+            var fileContent = await File.ReadAllBytesAsync($"{WebHostEnvironment.WebRootPath}/images/default.png");
 
             // Set the model with the item
             itemModel = ItemFactory.ToModel(item, fileContent);
