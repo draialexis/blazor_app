@@ -18,4 +18,8 @@
     <Folder Include="wwwroot\_content\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Minecraft.Crafting.Api\Minecraft.Crafting.Api.csproj" />
+  </ItemGroup>
+
 </Project>
