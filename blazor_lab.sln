@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor_lab", "blazor_lab\blazor_lab.csproj", "{7B8F9C82-6399-47FC-A996-8140F39484D6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F89D34E2-0DBC-4E98-BC77-E4CB00A33D19} = {F89D34E2-0DBC-4E98-BC77-E4CB00A33D19}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minecraft.Crafting.Api", "Minecraft.Crafting.Api\Minecraft.Crafting.Api.csproj", "{F89D34E2-0DBC-4E98-BC77-E4CB00A33D19}"
 EndProject
