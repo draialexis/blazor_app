@@ -16,9 +16,6 @@ namespace blazor_lab.Pages
         private int totalItems;
 
         [Inject]
-        public IStringLocalizer<List> Localizer { get; set; }
-
-        [Inject]
         public IDataService DataService { get; set; }
 
         [Inject]
