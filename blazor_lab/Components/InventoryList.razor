@@ -3,6 +3,14 @@
         <input type="text" value="@searchQuery" @oninput="OnInputChange" placeholder="@Localizer["search_label"]" />
     </div>
 
+    <div class="sort-container">
+        <label>@Localizer["sort_label"]</label>
+        <select @onchange="OnSortOptionChanged">
+            <option value="NameDescending">@Localizer["sort_by_name_desc"]</option>
+            <option value="NameAscending">@Localizer["sort_by_name_asc"]</option>
+        </select>
+    </div>
+
     <div class="inventory-list-items">
         @foreach (var item in VisibleItems)
         {
