@@ -126,4 +126,13 @@
   <data name="search_label" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="sort_by_name_asc" xml:space="preserve">
+    <value>Sort by name (Asc.)</value>
+  </data>
+  <data name="sort_by_name_desc" xml:space="preserve">
+    <value>Sort by name (Desc.)</value>
+  </data>
+  <data name="sort_label" xml:space="preserve">
+    <value>Sort</value>
+  </data>
 </root>
