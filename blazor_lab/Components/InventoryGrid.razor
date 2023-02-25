@@ -1,0 +1,21 @@
+﻿<div class="inventory-grid">
+    @for (int row = 0; row < 3; row++)
+    {
+        <div class="inventory-row">
+            @for (int col = 0; col < 6; col++)
+            {
+                <div class="inventory-slot">
+                    @if (Inventory != null && Inventory.Count > (row * 6 + col))
+                    {
+                        var slot = Inventory[row * 6 + col];
+                        @if (slot.NumberItem > 0)
+                        {
+                            <img src="@($"data:image/png;base64,{GetItemImageBase64(@slot.ItemName)}")" alt="@slot.ItemName" />
+                            <div class="slot-count">@slot.NumberItem</div>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
