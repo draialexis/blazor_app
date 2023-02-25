@@ -1,0 +1,35 @@
+﻿<div class="inventory-list">
+    <div class="search-container">
+        <input type="text" value="@searchQuery" @oninput="OnInputChange" placeholder="@Localizer["search_label"]" />
+    </div>
+
+    <div class="inventory-list-items">
+        @foreach (var item in VisibleItems)
+        {
+            <div class="inventory-list-item side-by-side">
+                <img src="@($"data:image/png;base64,{item.ImageBase64}")" alt="@item.DisplayName" />
+                <div class="item-name">@item.DisplayName</div>
+            </div>
+        }
+    </div>
+
+    <div class="pagination-container">
+        @for (var i = 1; i <= TotalPages; i++)
+        {
+            var pageNumber = i; // copy the loop variable to avoid closure issues
+            <button @onclick="() => GoToPage(pageNumber)">@pageNumber</button>
+        }
+    </div>
+    <div class="item-count">
+        @if (VisibleItems.Any())
+        {
+            var firstItem = (currentPage - 1) * pageSize + 1;
+            var lastItem = Math.Min(currentPage * pageSize, TotalItems);
+            <span>@firstItem - @lastItem @Localizer["out_of"] @TotalItems</span>
+        }
+        else
+        {
+            <span>@Localizer["no_items_found"]</span>
+        }
+    </div>
+</div>
