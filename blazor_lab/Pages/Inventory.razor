@@ -2,6 +2,14 @@
 @using Minecraft.Crafting.Api.Models
 @using blazor_lab.Components
 
-<h1>Inventory</h1>
+<div class="side-by-side">
+    <div>
+        <h2>@Localizer["my_inventory"]</h2>
 
-<InventoryGrid Inventory="Stuff" />
+    <InventoryGrid Inventory="FreshInventory" Items="Items" />
+    </div>
+    <div>
+        <h2>@Localizer["list_of_items"]</h2>
+    <InventoryList Items="Items" />
+    </div>
+</div>

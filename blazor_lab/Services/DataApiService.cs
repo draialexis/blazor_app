@@ -28,6 +28,11 @@ namespace blazor_lab.Services
             return await _http.GetFromJsonAsync<int>("https://localhost:7234/api/Crafting/count");
         }
 
+        public async Task<List<Item>> All()
+        {
+            return await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/all");
+        }
+
         public async Task<List<Item>> List(int currentPage, int pageSize)
         {
             return await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/?currentPage={currentPage}&pageSize={pageSize}");

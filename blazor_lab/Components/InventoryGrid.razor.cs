@@ -1,11 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Minecraft.Crafting.Api.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
 
 
 namespace blazor_lab.Components
@@ -16,18 +10,12 @@ namespace blazor_lab.Components
         [Parameter]
         public List<InventoryModel> Inventory { get; set; }
 
-        public List<Item> Items { get; set; } = new List<Item>();
-
-        [Inject]
-        public HttpClient HttpClient { get; set; }
-
-        [Inject]
-        public IConfiguration Config { get; set; }
-
-        protected override async Task OnInitializedAsync()
-        {
-            Items = await HttpClient.GetFromJsonAsync<List<Item>>($"{Config["CraftingApi:BaseUrl"]}/api/Crafting/all");
-        }
+        /// <summary>
+        /// Used by GetItemImageBase64 in this component, rather than calling our DataService every time.
+        /// A very basic cache, not kept up to date in any way, but event listeners could be set up in the future
+        /// </summary>
+        [Parameter]
+        public List<Models.Item> Items { get; set; }
 
         public string GetItemImageBase64(string displayName)
         {

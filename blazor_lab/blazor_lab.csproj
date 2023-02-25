@@ -22,4 +22,13 @@
     <ProjectReference Include="..\Minecraft.Crafting.Api\Minecraft.Crafting.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Pages.Inventory.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Components.InventoryList.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

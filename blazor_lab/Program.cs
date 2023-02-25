@@ -43,7 +43,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = new List<CultureInfo> { new CultureInfo("en-US"), new CultureInfo("fr-FR") };
 });
 
-builder.Services.AddScoped<IDataService, DataApiService>();
+builder.Services.AddScoped<DataApiService>();
 
 var app = builder.Build();
 
