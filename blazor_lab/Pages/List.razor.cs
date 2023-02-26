@@ -5,7 +5,6 @@ using Blazored.Modal;
 using Blazored.Modal.Services;
 using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Localization;
 
 namespace blazor_lab.Pages
 {

@@ -11,7 +11,7 @@ namespace blazor_lab.Components
     }
     public partial class InventoryList
     {
-        [CascadingParameter] 
+        [CascadingParameter]
         public Inventory Parent { get; set; }
 
         [Inject]

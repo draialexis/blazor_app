@@ -1,5 +1,4 @@
-﻿using blazor_lab.Components;
-using blazor_lab.Services;
+﻿using blazor_lab.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 
