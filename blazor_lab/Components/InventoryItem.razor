@@ -13,7 +13,10 @@
     @if (InventoryModel is not null && IsInInventory)
     {
         <div>
-            <img src="@($" data:image/png;base64,{GetItemImageBase64()}")" alt="@InventoryModel.ItemName" />
+            @if (InventoryModel.NumberItem > 0)
+            {
+                <div>@InventoryModel.ItemName</div>
+            }
             <div class="slot-count">@InventoryModel.NumberItem</div>
         </div>
     }

@@ -1,6 +1,7 @@
 ﻿using blazor_lab.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Minecraft.Crafting.Api;
 using Minecraft.Crafting.Api.Models;
 using System.Diagnostics;
 using Item = blazor_lab.Models.Item;
@@ -27,9 +28,6 @@ namespace blazor_lab.Components
         [CascadingParameter]
         public Inventory? InventoryParent { get; set; }
 
-        [Inject]
-        public IDataService DataService { get; set; }
-
         public InventoryModel InventoryModel { get; set; } = new InventoryModel();
 
         public InventoryItem()
@@ -54,7 +52,7 @@ namespace blazor_lab.Components
                 {
                     InventoryModel = InventoryParent!.CurrentDragItem!;
                     InventoryModel.Position = Position;
-                    InventoryParent.InventoryContent.Add(InventoryModel);
+                    InventoryParent.InventoryContent.Insert(Position, InventoryModel);
                 }
                 else
                 {
@@ -64,6 +62,7 @@ namespace blazor_lab.Components
                     }
                 }
             }
+            StateHasChanged();
         }
 
         internal void OnDragEnd()
@@ -91,19 +90,6 @@ namespace blazor_lab.Components
                     InventoryParent!.CurrentDragItem = InventoryModel;
                 }
             }
-        }
-
-        public async Task<string?> GetItemImageBase64()
-        {
-            // FIXME probably not great to inject a service in each item and query the whole database everytime we display it
-
-            if (InventoryParent is not null)
-            {
-                return (await DataService.List(0, await DataService.Count()))
-                                .FirstOrDefault(i => i.DisplayName == InventoryModel.ItemName)?
-                                .ImageBase64;
-            }
-            else return null;
         }
     }
 }
