@@ -12,6 +12,15 @@
         margin-right: 10px;
     }
 
+.slot-image {
+    font-weight : bold;
+    font-size: small;
+}
+
+.slot-count {
+    font-size: small;
+}
+
 .item-name {
     font-weight: bold;
 }

@@ -1,9 +1,6 @@
-﻿using blazor_lab.Services;
+﻿using Blazorise.Extensions;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Minecraft.Crafting.Api;
 using Minecraft.Crafting.Api.Models;
-using System.Diagnostics;
 using Item = blazor_lab.Models.Item;
 
 namespace blazor_lab.Components
@@ -28,14 +25,16 @@ namespace blazor_lab.Components
         [CascadingParameter]
         public Inventory? InventoryParent { get; set; }
 
-        public InventoryModel InventoryModel { get; set; } = new InventoryModel();
+        public InventoryModel? InventoryModel { get; set; } = new InventoryModel();
 
         public InventoryItem()
         {
-            if (Item is not null && IsInList)
+            if (IsInInventory)
             {
-                InventoryModel.ItemName = Item.DisplayName;
-                InventoryModel.NumberItem = 1;
+                InventoryModel.ImageBase64 = null;
+                InventoryModel.ItemName = "";
+                InventoryModel.NumberItem = 0;
+                InventoryModel.Position = Position;
             }
         }
 
@@ -43,15 +42,19 @@ namespace blazor_lab.Components
         {
             if (IsInList)
             {
+                ListParent!.Parent.CurrentDragItem = null;
                 return;
             }
 
             if (IsInInventory)
             {
-                if (InventoryModel.Position == -1) // new inventoryModel
+                InventoryModel ??= new();
+                if (InventoryModel.ItemName.IsNullOrEmpty()) // new inventoryModel
                 {
-                    InventoryModel = InventoryParent!.CurrentDragItem!;
+                    InventoryModel.ImageBase64 = InventoryParent!.CurrentDragItem!.ImageBase64;
+                    InventoryModel.ItemName = InventoryParent!.CurrentDragItem!.ItemName;
                     InventoryModel.Position = Position;
+                    InventoryModel.NumberItem = 1;
                     InventoryParent.InventoryContent.Insert(Position, InventoryModel);
                 }
                 else
@@ -61,34 +64,32 @@ namespace blazor_lab.Components
                         InventoryModel.NumberItem += 1;
                     }
                 }
-            }
-            StateHasChanged();
-        }
-
-        internal void OnDragEnd()
-        {
-            if (IsInList)
-            {
-                ListParent!.Parent.CurrentDragItem = null;
-            }
-            else if (IsInInventory)
-            {
                 InventoryParent!.CurrentDragItem = null;
             }
         }
 
         private void OnDragStart()
         {
-            if (InventoryModel is not null)
+            if (IsInList)
             {
-                if (IsInList)
+                ListParent!.Parent.CurrentDragItem = new InventoryModel
                 {
-                    ListParent!.Parent.CurrentDragItem = InventoryModel;
-                }
-                else if (IsInInventory)
+                    ImageBase64 = Item!.ImageBase64,
+                    ItemName = Item!.DisplayName,
+                    NumberItem = 1,
+                    Position = -1
+                };
+            }
+            else if (IsInInventory) // delete item stack if it is dragged from inventory
+            {
+                InventoryModel = new InventoryModel
                 {
-                    InventoryParent!.CurrentDragItem = InventoryModel;
-                }
+                    ImageBase64 = null,
+                    ItemName = "",
+                    NumberItem = 0,
+                    Position = Position
+                };
+                InventoryParent!.CurrentDragItem = null;
             }
         }
     }

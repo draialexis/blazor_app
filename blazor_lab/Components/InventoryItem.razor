@@ -1,7 +1,6 @@
 ﻿<div ondragover="event.preventDefault();"
      draggable="true"
      @ondragstart="@OnDragStart"
-     @ondragend="@OnDragEnd"
      @ondrop="@OnDrop">
     @if (Item is not null && IsInList)
     {
@@ -12,10 +11,12 @@
     }
     @if (InventoryModel is not null && IsInInventory)
     {
-        <div>
+        <div class="inventory-grid-item">
             @if (InventoryModel.NumberItem > 0)
             {
-                <div>@InventoryModel.ItemName</div>
+                <div class="slot-image">
+                    <img src="@($"data:image/png;base64,{InventoryModel.ImageBase64}")" alt="@InventoryModel.ItemName" />
+                </div>
             }
             <div class="slot-count">@InventoryModel.NumberItem</div>
         </div>
