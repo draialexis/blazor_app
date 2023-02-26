@@ -1,4 +1,6 @@
 ﻿.inventory-list-item {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -12,20 +14,26 @@
         margin-right: 10px;
     }
 
-.slot-image {
-    font-weight : bold;
-    font-size: small;
-}
-
-.slot-count {
-    font-size: small;
-}
-
-.item-name {
-    font-weight: bold;
-}
-
-.side-by-side {
+.inventory-grid-item {
     display: flex;
-    flex-direction: row;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    height: 64px;
+    width: 64px;
 }
+
+    .inventory-grid-item .slot-image {
+        font-weight: bold;
+        font-size: small;
+    }
+
+    .inventory-grid-item .slot-count {
+        font-size: small;
+    }
+
+    .inventory-grid-item .item-name {
+        font-weight: bold;
+    }

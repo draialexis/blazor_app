@@ -4,7 +4,7 @@
      @ondrop="@OnDrop">
     @if (Item is not null && IsInList)
     {
-        <div class="inventory-list-item side-by-side">
+        <div class="inventory-list-item">
             <img src="@($"data:image/png;base64,{Item.ImageBase64}")" alt="@Item.DisplayName" />
             <div class="item-name">@Item.DisplayName</div>
         </div>
@@ -17,8 +17,8 @@
                 <div class="slot-image">
                     <img src="@($"data:image/png;base64,{InventoryModel.ImageBase64}")" alt="@InventoryModel.ItemName" />
                 </div>
+                <div class="slot-count">@InventoryModel.NumberItem</div>
             }
-            <div class="slot-count">@InventoryModel.NumberItem</div>
         </div>
     }
 </div>
