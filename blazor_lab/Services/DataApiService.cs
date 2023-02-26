@@ -31,11 +31,6 @@ namespace blazor_lab.Services
             return await _http.GetFromJsonAsync<int>($"{_apiBaseUrl}/count");
         }
 
-        public async Task<List<Item>> All()
-        {
-            return await _http.GetFromJsonAsync<List<Item>>($"{_apiBaseUrl}/all");
-        }
-
         public async Task<List<Item>> List(int currentPage, int pageSize)
         {
             return await _http.GetFromJsonAsync<List<Item>>($"{_apiBaseUrl}/?currentPage={currentPage}&pageSize={pageSize}");
