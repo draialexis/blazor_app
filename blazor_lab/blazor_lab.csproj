@@ -1,34 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-    <PackageReference Include="Blazored.Modal" Version="7.1.0" />
-    <PackageReference Include="Blazorise.Bootstrap" Version="1.2.1" />
-    <PackageReference Include="Blazorise.DataGrid" Version="1.2.1" />
-    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+		<PackageReference Include="Blazored.Modal" Version="7.1.0" />
+		<PackageReference Include="Blazorise.Bootstrap" Version="1.2.1" />
+		<PackageReference Include="Blazorise.DataGrid" Version="1.2.1" />
+		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\_content\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\_content\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Minecraft.Crafting.Api\Minecraft.Crafting.Api.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Minecraft.Crafting.Api\Minecraft.Crafting.Api.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Pages.Inventory.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Components.InventoryList.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Components.Inventory.resx">
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Pages.InventoryPage.resx">
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Components.InventoryList.resx">
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>

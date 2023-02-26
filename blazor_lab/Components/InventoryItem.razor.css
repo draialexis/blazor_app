@@ -1,0 +1,39 @@
+﻿.inventory-list-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+    .inventory-list-item img {
+        max-width: 64px;
+        max-height: 64px;
+        margin-right: 10px;
+    }
+
+.inventory-grid-item {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    height: 64px;
+    width: 64px;
+}
+
+    .inventory-grid-item .slot-image {
+        font-weight: bold;
+        font-size: small;
+    }
+
+    .inventory-grid-item .slot-count {
+        font-size: small;
+    }
+
+    .inventory-grid-item .item-name {
+        font-weight: bold;
+    }

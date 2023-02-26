@@ -130,9 +130,9 @@
     <value>Trier par</value>
   </data>
   <data name="sort_by_name_asc" xml:space="preserve">
-    <value>Trier par nom (Asc.)</value>
+    <value>nom (Asc.)</value>
   </data>
   <data name="sort_by_name_desc" xml:space="preserve">
-    <value>Trier par nom (Desc.)</value>
+    <value>nom (Desc.)</value>
   </data>
 </root>

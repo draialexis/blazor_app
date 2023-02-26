@@ -117,22 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="no_items_found" xml:space="preserve">
-    <value>No items found</value>
-  </data>
-  <data name="out_of" xml:space="preserve">
-    <value>out of</value>
-  </data>
-  <data name="search_label" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="sort_by_name_asc" xml:space="preserve">
-    <value>name (Asc.)</value>
-  </data>
-  <data name="sort_by_name_desc" xml:space="preserve">
-    <value>name (Desc.)</value>
-  </data>
-  <data name="sort_label" xml:space="preserve">
-    <value>Sort</value>
+  <data name="inventory" xml:space="preserve">
+    <value>Inventory</value>
   </data>
 </root>
