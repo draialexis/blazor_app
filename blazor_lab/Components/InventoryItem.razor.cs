@@ -26,16 +26,13 @@ namespace blazor_lab.Components
         [CascadingParameter]
         public Inventory? InventoryParent { get; set; }
 
-        public InventoryModel? InventoryModel { get; set; } = new InventoryModel();
+        public InventoryModel InventoryModel { get; set; } = new InventoryModel();
 
         public InventoryItem()
         {
             if (IsInInventory)
             {
-                InventoryModel.ImageBase64 = null;
-                InventoryModel.ItemName = "";
-                InventoryModel.NumberItem = 0;
-                InventoryModel.Position = Position;
+                InitInventoryModel();
             }
         }
 
@@ -53,10 +50,9 @@ namespace blazor_lab.Components
                 return;
             }
 
-            if (IsInInventory)
+            if (IsInInventory && InventoryParent!.CurrentDragItem is not null)
             {
-                InventoryModel ??= new();
-                if (InventoryModel.ItemName.IsNullOrEmpty()) // new inventoryModel
+                if (InventoryModel!.ItemName.IsNullOrEmpty()) // new inventoryModel
                 {
                     InventoryModel.ImageBase64 = InventoryParent!.CurrentDragItem!.ImageBase64;
                     InventoryModel.ItemName = InventoryParent!.CurrentDragItem!.ItemName;
@@ -65,32 +61,30 @@ namespace blazor_lab.Components
                     InventoryParent.InventoryContent.Insert(Position, InventoryModel);
                     InventoryParent.Actions.Add(new InventoryAction
                     {
-                        Action = "Drop on inventory -- successful",
+                        Action = "Drop on inventory -- new -- successful",
+                        InventoryModel = InventoryModel,
+                        Position = Position
+                    });
+                }
+                else if (InventoryModel.ItemName == InventoryParent!.CurrentDragItem!.ItemName) // adding to an existing stack
+                {
+                    InventoryModel.NumberItem += 1;
+                    InventoryParent.Actions.Add(new InventoryAction
+                    {
+                        Action = "Drop on inventory -- add -- successful",
                         InventoryModel = InventoryModel,
                         Position = Position
                     });
                 }
                 else
                 {
-                    if (InventoryModel.ItemName == InventoryParent!.CurrentDragItem!.ItemName) // adding to an existing stack
-                    {
-                        InventoryModel.NumberItem += 1;
-                    }
                     InventoryParent.Actions.Add(new InventoryAction
                     {
-                        Action = "Drop on inventory -- successful",
-                        InventoryModel = InventoryModel,
+                        Action = "Drop on inventory -- unsuccessful",
+                        InventoryModel = null,
                         Position = Position
                     });
                 }
-
-                InventoryParent.Actions.Add(new InventoryAction
-                {
-                    Action = "Drop on inventory -- unsuccessful",
-                    InventoryModel = null,
-                    Position = Position
-                });
-
                 InventoryParent!.CurrentDragItem = null;
             }
         }
@@ -113,18 +107,26 @@ namespace blazor_lab.Components
                     Position = ListParent.Parent.CurrentDragItem.Position
                 });
             }
-            else if (IsInInventory && InventoryParent!.CurrentDragItem is not null && InventoryModel is not null) 
-                // delete item stack if it is dragged from inventory
+            else if (IsInInventory)
+            // delete item stack if it is dragged from inventory
             {
-                InventoryParent.Actions.Add(new InventoryAction
+                InventoryParent!.Actions.Add(new InventoryAction
                 {
                     Action = "Drag from inventory (deleting)",
                     InventoryModel = InventoryParent.CurrentDragItem,
-                    Position = InventoryParent.CurrentDragItem.Position
+                    Position = Position
                 });
                 InventoryParent.CurrentDragItem = null;
-                InventoryModel = null;
+                InitInventoryModel();
             }
+        }
+
+        private void InitInventoryModel()
+        {
+            InventoryModel.ImageBase64 = null;
+            InventoryModel.ItemName = "";
+            InventoryModel.NumberItem = 0;
+            InventoryModel.Position = Position;
         }
     }
 }
