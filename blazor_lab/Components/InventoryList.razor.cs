@@ -22,11 +22,13 @@ namespace blazor_lab.Components
         private string searchQuery = "";
 
         private int currentPage = 1;
-        private int pageSize = 10;
+        private readonly int pageSize = 10;
 
         private void UpdateFilteredItems()
         {
-            _filteredItems = string.IsNullOrEmpty(searchQuery) ? Items : Items.Where(i => i.DisplayName.ToLower().Contains(searchQuery.ToLower())).ToList();
+            _filteredItems = string.IsNullOrEmpty(searchQuery)
+                ? Items
+                : Items.Where(i => i.DisplayName.ToLower().Contains(searchQuery.ToLower())).ToList();
             SortItems();
             VisibleItems = _filteredItems.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
         }
@@ -77,6 +79,7 @@ namespace blazor_lab.Components
         {
             searchQuery = e.Value.ToString();
             await Task.Delay(250); // debounce the search to avoid excessive API requests
+            currentPage = 1; // Go back to page 1 when user is searching
             UpdateFilteredItems();
         }
         private void OnSortOptionChanged(ChangeEventArgs e)

@@ -7,8 +7,7 @@ namespace blazor_lab.Components
 
     public partial class InventoryGrid
     {
-        [Parameter]
-        public List<InventoryModel> Inventory { get; set; }
+        public List<InventoryModel> Inventory { get; set; } = Enumerable.Range(1, 18).Select(_ => new InventoryModel()).ToList();
 
         /// <summary>
         /// Used by GetItemImageBase64 in this component, rather than calling our DataService every time.

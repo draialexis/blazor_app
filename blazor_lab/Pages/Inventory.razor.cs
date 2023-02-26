@@ -20,7 +20,5 @@ namespace blazor_lab.Pages
         {
             Items = await DataApiService.All();
         }
-
-        private List<InventoryModel> FreshInventory = Enumerable.Range(1, 18).Select(_ => new InventoryModel()).ToList();
     }
 }
