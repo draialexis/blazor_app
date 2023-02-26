@@ -1,12 +1,25 @@
-﻿@using blazor_lab.Components
+﻿<CascadingValue Value="@this">
 
-<div class="side-by-side">
-    <div>
-        <h2>@Localizer["my_inventory"]</h2>
-        <InventoryGrid Items="Items" />
-    </div>
-    <div>
-        <h2>@Localizer["list_of_items"]</h2>
-        <InventoryList Items="Items" />
-    </div>
-</div>
+    <div class="side-by-side">
+
+        <div class="inventory-grid">
+            @for (int row = 0; row < 3; row++) { <div class="inventory-row">
+                @for (int col = 0; col < 6; col++) { <div class="inventory-slot">
+                    @if (InventoryContent != null && InventoryContent.Count > (row * 6 + col))
+                    {
+                        <InventoryItem Position="(row * 6 + col)" IsInList="false" IsInInventory="true"/>
+                    }
+                    </div>
+                }
+                </div>
+            }
+            </div>
+
+            <div>
+                <h2>@Localizer["list_of_items"]</h2>
+                <InventoryList Items="Items" />
+            </div>
+
+       </div>
+
+</CascadingValue>

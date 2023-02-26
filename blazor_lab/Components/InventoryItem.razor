@@ -1,0 +1,20 @@
+﻿<div ondragover="event.preventDefault();"
+     draggable="true"
+     @ondragstart="@OnDragStart"
+     @ondragend="@OnDragEnd"
+     @ondrop="@OnDrop">
+    @if (Item is not null && IsInList)
+    {
+        <div class="inventory-list-item side-by-side">
+            <img src="@($"data:image/png;base64,{Item.ImageBase64}")" alt="@Item.DisplayName" />
+            <div class="item-name">@Item.DisplayName</div>
+        </div>
+    }
+    @if (InventoryModel is not null && IsInInventory)
+    {
+        <div>
+            <img src="@($" data:image/png;base64,{GetItemImageBase64()}")" alt="@InventoryModel.ItemName" />
+            <div class="slot-count">@InventoryModel.NumberItem</div>
+        </div>
+    }
+</div>

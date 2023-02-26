@@ -11,6 +11,9 @@ namespace blazor_lab.Components
     }
     public partial class InventoryList
     {
+        [CascadingParameter] 
+        public Inventory Parent { get; set; }
+
         [Inject]
         public IStringLocalizer<InventoryList> Localizer { get; set; }
 
